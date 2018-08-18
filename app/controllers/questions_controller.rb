@@ -1,4 +1,8 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
+
+
   def index
     @questions = Question.all
   end
@@ -9,13 +13,15 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    before_action :authenticate_user!
-
   end
 
   def create
-    before_action :authenticate_user!
-
+    @question = Question.new(question_params)
+    if @question.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,10 +29,20 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
     
+  end
+
+  private 
+  def question_params
+    params.require(:question).permit(:title, :body)
   end
 end
