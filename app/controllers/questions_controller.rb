@@ -9,10 +9,13 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    before_action :authenticate_user!
+
   end
 
   def create
-    
+    before_action :authenticate_user!
+
   end
 
   def edit
