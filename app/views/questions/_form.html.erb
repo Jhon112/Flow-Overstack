@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">  
         <h1>Post your question</h1>
-        <%= form_for question do |f| %>
+        <%= form_for @question do |f| %>
             <div class="form-group">
             <%= f.label :title  %>
             <%= f.text_field :title, class: "form-control", placeholder: "Title" %>
@@ -12,8 +12,9 @@
             <%= f.label :body %>
             <%= f.text_area :body, rows: 10, class: "form-control", placeholder: "Description"%>                
             </div
-            <div>
-            <%= f.submit "¡Ask!", class:"btn btn-primary btn-lg btn-block"  %>
+
+            <div class="form-group">
+              <%= f.submit "¡Ask!", class:"btn btn-primary btn-lg btn-block"  %>
             </div>
         <% end %>        
     </div>

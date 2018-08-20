@@ -10,10 +10,14 @@
                 <td></td>
                 <td>
                     <h1><%= link_to question.title, question_path(question) %></h1>
-                    <h2><%= question.body %></h2>
+                    <% unless question.user.nil? %>
+                    <p class="help-block">Asked by <%= question.user.email %> || on <%= question.created_at %></p>
+                    <% end %>
                 </td> 
                 <td>                    
                     <%= link_to 'Edit', edit_question_path(question) %>
+                    <%= link_to "Delete", question, method: :delete, data: { confirm: "Are you sure about deleting this question? It might helps someone else" } %>
+
                 </td>
             </tr>
             <% end %>
