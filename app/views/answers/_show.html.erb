@@ -1,0 +1,7 @@
+<hr>
+<% @question.answers.each do |answer| %>
+  <div class="panel panel-default">
+    <div class="panel-body"><%= answer.text %></div>
+    <p class="help-block"><%= answer.user.email %> <%= time_ago_in_words(answer.created_at) %> ago</p>
+  </div>
+<% end %>

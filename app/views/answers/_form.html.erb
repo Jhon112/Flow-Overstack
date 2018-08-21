@@ -1,15 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">  
+    <div class="col-md-10 col-md-offset-1">  
         <h1>Your answer</h1>
+          <hr>
           <%= form_for [@question, @question.answers.build] do |f| %>
             <div class="form-group">
-              <%= f.text_area :text, rows: 10, class: "form-control", placeholder: "Answer"%>                
+              <%= f.text_area :text, rows: 5, class: "form-control", placeholder: "Answer"%>                
             </div
 
-            <div class="actions text-right">
+            <div class="form-group">
               <%= f.submit "Answer", class: "btn btn-primary" %>
-             </div>
+            </div>
         <% end %>        
     </div>
   </div>

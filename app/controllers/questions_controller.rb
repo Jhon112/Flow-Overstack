@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.new(question_params)
     if @question.save
-      redirect_to root_path
+      redirect_to root_path, notice: "Your question was post correctly!"
     else
       render :new
     end
