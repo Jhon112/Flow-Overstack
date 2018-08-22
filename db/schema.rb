@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2018_08_22_003304) do
-=======
 ActiveRecord::Schema.define(version: 2018_08_20_002651) do
->>>>>>> 6434092eedac0d1cd5ff1c8969e9346ef861e706
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
@@ -25,7 +21,6 @@ ActiveRecord::Schema.define(version: 2018_08_20_002651) do
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
-<<<<<<< HEAD
 
   create_table "comments", force: :cascade do |t|
     t.string "commentable_type"
@@ -35,8 +30,6 @@ ActiveRecord::Schema.define(version: 2018_08_20_002651) do
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
-=======
->>>>>>> 6434092eedac0d1cd5ff1c8969e9346ef861e706
 
   create_table "questions", force: :cascade do |t|
     t.string "title"
