@@ -1,2 +1,25 @@
-    <h1><%= @question.title%></h1>
-    <h2><%= @question.body %></h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">            
+            <h1><%= @question.title%></h1>
+            <p><%= @question.body %></p>                        
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1"> 
+    <hr>
+        <h2><%= @question.answers.count %> Answer(s) </h2> 
+
+         <% if @question.answers.count == 0 %>
+            <p>If you know someone who could answer this question please give her/him a call! </p>
+            <% else %>
+            <%= render "answers/show" %>
+         <% end %>
+     </div>
+    </div>
+    
+    <% if signed_in? %>
+      <%= render "answers/form" %> 
+    <% end %>    
+</div>    
