@@ -21,7 +21,8 @@ class AnswersController < ApplicationController
     if @answer.save
       redirect_to question_path(@question)
     else
-      redirect_to question_path(@question), notice: "Write your answer before post it"
+      # render 'questions/show', notice: "Write your answer before post it"
+      redirect_to question_path(@question)
     end  
   end
 
