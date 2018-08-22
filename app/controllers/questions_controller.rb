@@ -14,9 +14,9 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.new(question_params)
     if @question.save
-      redirect_to root_path
+      redirect_to root_path, notice: "Your question was post correctly!"
     else
       render :new
     end
@@ -36,7 +36,9 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    
+        @question = Question.find(params[:id])
+        @question.destroy
+        redirect_to root_path
   end
 
   private 
