@@ -4,4 +4,7 @@ class Question < ApplicationRecord
     has_many :comments, as: :commentable
     belongs_to :user
     
+    def voted_by?(user)
+        votes.exist?(user: user)
+    end
 end
